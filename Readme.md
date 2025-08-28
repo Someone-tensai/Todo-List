@@ -1,1 +1,0 @@
-This is a simple restaurant webpage made using webpack technology. [Live Preview](https://someone-tensai.github.io/Restaurant-Page/index.html)
