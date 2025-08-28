@@ -10,29 +10,27 @@ export class Task {
         this.notes = notes;
     }
 
-    edit_title()
+    edit_title(title)
     {
-
+        this.title = title;
     }
 
-    edit_description()
+    edit_description(description)
     {
-
+        this.description = description;
     }
-
-    edit_due_date()
+     edit_due_date(due_date)
     {
-
+        this.due_date = due_date;
     }
-    edit_priority()
+     edit_priority(priority)
     {
-
+        this.priority = priority;
     }
-    edit_notes()
+     edit_notes(notes)
     {
-
+        this.notes = notes;
     }
-
     display()
     {
         console.log(`id: ${this.id}`);

@@ -39,9 +39,15 @@ Todo List Application
 */
 import { Project } from "../project";
 import { Task } from "../task";
-const task = new Task("Todo List", "Make a Todo List", "2082/10/10" , "1" , "None");
-const task1 = new Task("Test Task", "Testing", "2082/02/10" , "0" , "Something");
+let task = new Task("Todo List", "Make a Todo List", "2082/10/10" , "1" , "None");
+let task1 = new Task("Test Task", "Testing", "2082/02/10" , "0" , "Something");
 const project1 = new Project(task); 
 project1.add_task(task1);
-project1.display_tasks_info();
 
+// project1.display_tasks_info();
+task1.edit_description("FUCKING HELL");
+project1.delete_task(task1);
+// project1.display_tasks_info();
+// task1.display();
+project1.delete_project();
+project1.display_tasks_info();
