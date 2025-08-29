@@ -1,4 +1,3 @@
-import { Task } from "./task";
 
 export class Project {
     task_list = [];
@@ -24,5 +23,4 @@ export class Project {
     {
         this.task_list.forEach(function(task){task.display(); console.log("\n");});
     }
-
 }
