@@ -1,9 +1,10 @@
 
 export class Project {
+
     task_list = [];
-    constructor(task)
+    constructor(name="Default Project")
     {
-        this.task_list.push(task);
+        this.name = name;
     }
 
     delete_project()

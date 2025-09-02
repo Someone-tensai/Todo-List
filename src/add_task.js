@@ -1,5 +1,7 @@
 import { Project } from "./project";
 import { Task } from "./task";
+
+
 export default function add_task()
 {
 
@@ -13,8 +15,17 @@ export default function add_task()
     body.appendChild(dialog);
     dialog.showModal();
     console.log("Add Button Clicked");
-}
 
-let add_submit = document.querySelector(".add_submit");
-add_submit.addEventListener("click", function(){});
+
+
+    let add_submit = document.querySelector(".add_submit");
+    add_submit.addEventListener("click", function(e){
+    
+        e.preventDefault();
+        console.log("Task Submitted");
+        dialog.close();
+    });
+    
+
+}
 
