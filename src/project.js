@@ -1,10 +1,12 @@
 
 export class Project {
 
+    
     task_list = [];
     constructor(name="Default Project")
     {
         this.name = name;
+        this.id = crypto.randomUUID();
     }
 
     delete_project()
