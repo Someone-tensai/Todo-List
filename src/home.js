@@ -1,7 +1,9 @@
 import project_list from ".";
 import add_task from "./add_task";
+import edit_task from "./edit_task";
+import delete_task from "./delete_task";
 
-export default function on_home_clicked() {
+export default function home_page() {
 
   let task_container = document.querySelector(".task_container");
   task_container.innerHTML = "";
@@ -14,11 +16,14 @@ export default function on_home_clicked() {
   sidebar_title.classList.add("title");
   sidebar_title.textContent = "Your Projects";
   sidebar.appendChild(sidebar_title);
+
+
   for (const project of project_list)
     {
         let sidebar_div = document.createElement("div");
         sidebar_div.textContent = project.name;
         sidebar_div.classList.add("sidebar_div");
+
         let project_div = document.createElement("div");
         project_div.classList.add("project_list");
 
@@ -27,14 +32,32 @@ export default function on_home_clicked() {
         project_title.textContent = project.name;
 
         project_div.id = project.id;
-        console.log(project_div.id);
         project_div.append(project_title);
     
         
         for (const task of project.task_list) 
         {
             let task1 = document.createElement("div");
-            task1.textContent = task.title;
+
+            let edit_task_button = document.createElement("button");
+            edit_task_button.textContent ="Edit";
+            edit_task_button.dataset.task_id = task.id;
+            edit_task_button.dataset.project_id = project.id;
+            edit_task_button.addEventListener("click", edit_task);
+          
+          
+            let delete_task_button = document.createElement("button");
+            delete_task_button.textContent = "Delete";
+            delete_task_button.dataset.task_id = task.id;
+            delete_task_button.dataset.project_id = project.id;
+            delete_task_button.addEventListener("click", delete_task);
+
+            let task_title = document.createElement("div");
+            
+            task_title.textContent = task.title;
+            task1.append(task_title);
+            task1.append(edit_task_button);
+            task1.append(delete_task_button);
             task1.classList.add("task");
             project_div.append(task1);
         }

@@ -53,9 +53,15 @@ p {
 }
 
 .task {
+   display: flex;
    padding: 10px;
    border: 2px solid rgb(161, 168, 202);
    border-radius: 12px;
+   gap: 7px;
+}
+
+.task div {
+   margin-right:auto;
 }
 .add_button, .form button {
    height: 30px;

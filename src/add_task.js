@@ -1,14 +1,12 @@
 import project_list from ".";
 import { Task } from "./task";
-import on_home_clicked from "./home";
+import home_page from "./home";
 
 
 export default function add_task(e)
 {
-    let body = document.querySelector("body");
     let id = e.target.value;
     let id_escaped = CSS.escape(e.target.value);
-    console.log(id);
     let project_id = document.querySelector(`#${id_escaped}`);
     let info_before = document.querySelector(".info");
     if(info_before) 
@@ -24,7 +22,6 @@ export default function add_task(e)
                         'Due_date <input type="text" name="due_date" id="due_date" placeholder="optional">'+
                         'Notes <input type="text" name="notes" id="notes" placeholder="optional"></input>'+
                         '<button type="submit" class="add_submit">Submit</button></form>'
-    console.log(project_id);
     project_id.append(info);
     let form = document.querySelector(".form");
     form.title.focus();
@@ -35,17 +32,15 @@ export default function add_task(e)
  
         e.preventDefault();
         let form = document.querySelector(".form");
-        console.log(form.title.value);
         if(!form.title.value)
         {
             form.title.placeholder = "Provide a Title";
             return;
         }
         let added_task = new Task(form.title.value);
-        console.log(project_list);
         project_list.filter((project)=> project.id == id)[0].add_task(added_task);
         info.hidden = true;
-        on_home_clicked();
+        home_page();
         
         console.log("Task Submitted");
     });
