@@ -2,6 +2,7 @@ import project_list from ".";
 import add_task from "./add_task";
 import edit_task from "./edit_task";
 import delete_task from "./delete_task";
+import add_project from "./add_project";
 
 export default function home_page() {
 
@@ -74,8 +75,13 @@ export default function home_page() {
         project_div.appendChild(add_div);
 
         sidebar.append(sidebar_div);
+        
   }
+      let add_project_button = document.createElement("button");
+        add_project_button.textContent ="New Project";
+        sidebar.append(add_project_button);
 
+        add_project_button.addEventListener("click",add_project);
   //BE RIGHT BACK 
   
 }
