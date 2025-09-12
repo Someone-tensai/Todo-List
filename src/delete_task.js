@@ -3,6 +3,7 @@ import project_list from ".";
 
 export default function delete_task(e)
 {
+    e.stopPropagation();
     let project_id = e.target.dataset.project_id;
     let task_id = e.target.dataset.task_id;
     

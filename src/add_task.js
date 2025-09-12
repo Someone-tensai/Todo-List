@@ -37,7 +37,7 @@ export default function add_task(e)
             form.title.placeholder = "Provide a Title";
             return;
         }
-        let added_task = new Task(form.title.value);
+        let added_task = new Task(form.title.value, form.description.value, form.priority.value, form.due_date.value, form.notes.value);
         project_list.filter((project)=> project.id == id)[0].add_task(added_task);
         info.hidden = true;
         home_page();

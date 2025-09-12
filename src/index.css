@@ -56,14 +56,19 @@ p {
    display: flex;
    padding: 10px;
    border: 2px solid rgb(161, 168, 202);
+   background-color: rgb(231, 164, 164);
    border-radius: 12px;
    gap: 7px;
+   white-space: pre-line;
 }
-
+.task:hover {
+   background-color: rgb(231, 19, 19);
+   opacity: 100%;
+}
 .task div {
    margin-right:auto;
 }
-.add_button, .form button {
+.add_button, .form button , .edit_form button{
    height: 30px;
    width: 100px;
    border: 2px solid rgb(110, 110, 235);
@@ -89,7 +94,7 @@ p {
    justify-content: top;
    background-color: rgb(133, 248, 122);
 }
-.form {
+.form , .edit_form{
    display:grid;
    grid-template-columns: 1fr 1fr;
    align-items: flex-start;

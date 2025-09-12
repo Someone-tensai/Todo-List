@@ -3,9 +3,11 @@ import add_task from "./add_task";
 import edit_task from "./edit_task";
 import delete_task from "./delete_task";
 import add_project from "./add_project";
-
+import show_details from "./show_details";
 export default function home_page() {
 
+  let body = document.querySelector("body");
+  
   let task_container = document.querySelector(".task_container");
   task_container.innerHTML = "";
   task_container.classList.add("task_container");
@@ -39,7 +41,8 @@ export default function home_page() {
         for (const task of project.task_list) 
         {
             let task1 = document.createElement("div");
-
+            task1.id = task.id;
+            task1.dataset.project_id = project.id;
             let edit_task_button = document.createElement("button");
             edit_task_button.textContent ="Edit";
             edit_task_button.dataset.task_id = task.id;
@@ -60,6 +63,7 @@ export default function home_page() {
             task1.append(edit_task_button);
             task1.append(delete_task_button);
             task1.classList.add("task");
+            task1.addEventListener("click", show_details);
             project_div.append(task1);
         }
         task_container.appendChild(project_div);
@@ -82,6 +86,5 @@ export default function home_page() {
         sidebar.append(add_project_button);
 
         add_project_button.addEventListener("click",add_project);
-  //BE RIGHT BACK 
   
 }
