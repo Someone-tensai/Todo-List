@@ -5,8 +5,10 @@ export class Task {
     due_date = "",
     priority = "",
     notes = "",
+    id = "",
   ) {
-    this.id = crypto.randomUUID();
+    if(id == "") this.id = crypto.randomUUID();
+    else this.id = id;
     this.title = title;
     this.description = description;
     this.due_date = due_date;

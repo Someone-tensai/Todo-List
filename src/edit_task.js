@@ -1,7 +1,7 @@
 import home_page from "./home";
-import project_list from ".";
+import project_list, { update_storage } from ".";
 import show_details from "./show_details";
-
+import { update_local_storage } from ".";
 export default function edit_task_DOM(e) {
   let info_before = document.querySelector(".info");
   if (info_before) {
@@ -53,6 +53,8 @@ export default function edit_task_DOM(e) {
       form.priority.value,
       form.notes.value,
     );
+    update_local_storage();
     home_page();
+
   });
 }

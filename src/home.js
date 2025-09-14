@@ -4,6 +4,7 @@ import edit_task from "./edit_task";
 import delete_task from "./delete_task";
 import add_project from "./add_project";
 import show_details from "./show_details";
+
 export default function home_page() {
   let body = document.querySelector("body");
 

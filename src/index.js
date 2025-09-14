@@ -1,16 +1,3 @@
-/*
-Todo List Application
-
-DOM Manipulation
-
-    * Basic Page Structure
-        - Today's Tasks(Heading)
-        (Sorted by Priority)
-        - Task1
-        - Task2 
-        - 
-
-*/
 import { Project } from "./project";
 import { Task } from "./task";
 import on_home_clicked from "./home";
@@ -32,8 +19,55 @@ let project2 = new Project("Project 2");
 let task3 = new Task("Another one", "HAHAHAH", "HEHEH", "2", "OHOHO");
 project2.add_task(task3);
 project_list.push(project2);
-export default project_list;
 
+if(!localStorage.getItem("projects"))
+{
+    localStorage.setItem("projects", JSON.stringify(project_list));
+}
+else
+{
+    let projects = JSON.parse(localStorage.getItem("projects"));
+    project_list = [];
+    for(let project_item of projects)
+    {
+        console.log(project_item);
+        let new_project = new Project(project_item.name, project_item.id);
+        for(let task_item of project_item.task_list)
+        {
+            let new_task = new Task(task_item.title, task_item.description, task_item.due_date, task_item.priority,task_item.notes, task_item.id);
+            new_project.add_task(new_task);
+        }
+        project_list.push(new_project);
+    }
+    console.log(project_list);
+}
+export default project_list;
+function storageAvailable(type) {
+  let storage;
+  try {
+    storage = window[type];
+    const x = "__storage_test__";
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return (
+      e instanceof DOMException &&
+      e.name === "QuotaExceededError" &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      storage &&
+      storage.length !== 0
+    );
+  }
+}
+
+export function update_local_storage()
+{
+    if(storageAvailable("localStorage"))
+    {
+      localStorage.setItem("projects", JSON.stringify(project_list));
+    }
+}
 // const project1 = new Project(task);
 // project1.add_task(task1);
 

@@ -1,6 +1,6 @@
 import home_page from "./home";
-import project_list from ".";
-
+import project_list, { update_storage } from ".";
+import { update_local_storage } from ".";
 export default function delete_task(e) {
   e.stopPropagation();
   let choice = prompt(
@@ -18,6 +18,7 @@ export default function delete_task(e) {
         project.delete_task(task);
       }
     });
+    update_local_storage();
     console.log(project_id);
     console.log(task_id);
     home_page();

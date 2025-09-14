@@ -1,6 +1,7 @@
 import project_list from ".";
 import { Task } from "./task";
 import home_page from "./home";
+import { update_local_storage } from ".";
 
 export default function add_task(e) {
   let id = e.target.value;
@@ -42,8 +43,11 @@ export default function add_task(e) {
       form.due_date.value,
       form.notes.value,
     );
+    console.log(project_list.filter((project) => project.id == id)[0]);
     project_list.filter((project) => project.id == id)[0].add_task(added_task);
     info.hidden = true;
+
+    update_local_storage();
     home_page();
 
     console.log("Task Submitted");

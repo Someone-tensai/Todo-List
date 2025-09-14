@@ -1,8 +1,15 @@
 export class Project {
   task_list = [];
-  constructor(name = "Default Project") {
+  constructor(name = "Default Project", id=" ") {
     this.name = name;
-    this.id = crypto.randomUUID();
+    if(id = " ")
+    {
+      this.id = crypto.randomUUID();
+    } 
+    else 
+    {
+      this.id = id;
+    }
   }
 
   delete_project() {

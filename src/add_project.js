@@ -22,6 +22,8 @@ export default function add_project() {
 
     let new_project = new Project(name);
     project_list.push(new_project);
+
+    
     home_page();
   });
 }
